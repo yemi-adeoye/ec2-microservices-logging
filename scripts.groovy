@@ -3,7 +3,7 @@
 def installPackages() {
     echo 'Installing Packages'
     sh  '''npm install --force '''
-    sh '''npm run build" '''
+    sh '''npm run build '''
 }
 
 def copyFiles() {
