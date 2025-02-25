@@ -2,6 +2,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'nodejs-18'
+    }
+
     stages {
         stage('init') {
             steps {
