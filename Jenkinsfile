@@ -15,21 +15,21 @@ pipeline {
             }
         }
 
-        stage('Copying Files') {
-            steps {
-                script {
-                    withCredentials([sshUserPrivateKey(credentialsId: 'ec2-kp', keyFileVariable: 'keyfile')]) {
-                        gv.copyFiles()
-                    }
-                }
-            }
-        }
-
         stage('Installing Packages') {
             steps {
                 script {
                     withCredentials([sshUserPrivateKey(credentialsId: 'ec2-kp', keyFileVariable: 'keyfile')]) {
                         gv.installPackages()
+                    }
+                }
+            }
+        }
+
+        stage('Copying Files') {
+            steps {
+                script {
+                    withCredentials([sshUserPrivateKey(credentialsId: 'ec2-kp', keyFileVariable: 'keyfile')]) {
+                        gv.copyFiles()
                     }
                 }
             }
